@@ -1,0 +1,22 @@
+from easygui import enterbox, msgbox
+
+secret_number = 23
+guess = True
+tries = 4
+while guess:
+    guess = enterbox("Guess a number between 1 and 100", "Guessing My Number Game")
+    if guess is None:
+        msgbox("You have now exited the game. Goodbye.")
+        break
+    guess = int(guess)
+    if guess > secret_number:
+        msgbox("Your guess is too high.")
+    elif guess < secret_number:
+        msgbox("Your guess is too low.")
+    elif guess == secret_number:
+        msgbox("You guessed my number!")
+        guess = False
+    tries -= 1
+    if tries == 0:
+        msgbox("Sorry, you have used all of your tries.")
+        guess = False 
